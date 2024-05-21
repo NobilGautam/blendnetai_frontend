@@ -4,7 +4,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        anton: ['Anton', 'sans-serif'],
+        'bebas-neue': ['Bebas Neue', 'sans-serif'],
+        outfit: ['Outfit', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
