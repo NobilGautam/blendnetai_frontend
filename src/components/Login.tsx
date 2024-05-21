@@ -9,7 +9,7 @@ const Login: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const { setUser } = useUserContext();
     const navigate = useNavigate();
-    const BASE_URL = 'https://api.render.com/deploy/srv-cp6739g21fec738cj3i0?key=ZDPVTxrm2PI';
+    const BASE_URL = 'https://blendnetai-backend.onrender.com';
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();

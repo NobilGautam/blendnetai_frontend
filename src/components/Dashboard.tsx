@@ -9,7 +9,7 @@ const Dashboard: React.FC = () => {
     const [newSymbol, setNewSymbol] = useState('');
     const [error, setError] = useState<string | null>(null);
     const { user, setUser } = useUserContext();
-    const BASE_URL = 'https://api.render.com/deploy/srv-cp6739g21fec738cj3i0?key=ZDPVTxrm2PI';
+    const BASE_URL = 'https://blendnetai-backend.onrender.com';
 
     useEffect(() => {
         if (user) {
