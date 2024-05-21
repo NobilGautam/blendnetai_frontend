@@ -7,7 +7,7 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
-  const BASE_URL = 'http://localhost:4000/';
+  const BASE_URL = 'https://blendnetai-backend.onrender.com/';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
