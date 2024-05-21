@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:4000/api/stocks'; // Your backend URL
+const BASE_URL = 'https://blendnetai-backend.onrender.com'; // Your backend URL
 
 export const fetchDailyStockData = async (symbol: string) => {
     const response = await axios.get(`${BASE_URL}/daily/${symbol}`);
