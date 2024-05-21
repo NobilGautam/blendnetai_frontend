@@ -1,26 +1,32 @@
+// App.tsx
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
+import Login from './components/Login';
+import Register from './components/Register';
+import Dashboard from './components/Dashboard';
+import StockList from './components/StockList'; // Import the new component
+import { UserProvider, useUserContext } from './utils/UserContext';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <UserProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+          <Route path="/stocks" element={<PrivateRoute><StockList /></PrivateRoute>} /> {/* Add the new route */}
+          <Route path="/" element={<Navigate to="/login" />} />
+        </Routes>
+      </UserProvider>
+    </Router>
   );
-}
+};
+
+const PrivateRoute: React.FC<{ children: React.ReactElement }> = ({ children }) => {
+  const { user } = useUserContext();
+  return user ? children : <Navigate to="/login" />;
+};
 
 export default App;
