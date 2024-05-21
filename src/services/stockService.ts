@@ -8,7 +8,7 @@ export const fetchDailyStockData = async (symbol: string) => {
 };
 
 export const fetchIntradayStockData = async (symbol: string, interval: string = '5min') => {
-    const response = await axios.get(`${BASE_URL}/intraday/${symbol}`, {
+    const response = await axios.get(`${BASE_URL}/api/stocks/intraday/${symbol}`, {
         params: {
             interval: interval
         }
